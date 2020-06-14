@@ -1,7 +1,7 @@
 <template>
   <div class="text-tooltip">
-    <el-tooltip class="item" effect="dark" :disabled="isShowTooltip" :content="content" placement="bottom">
-      <p class="over-flow" :class="className" @mouseover="onMouseOver(refName)">
+    <el-tooltip popper-class="good" effect="dark" :disabled="isShowTooltip" :content="content" placement="bottom">
+      <p class="over-flow" :class="className" >
         <span :ref="refName">{{content||'-'}}</span>
       </p>
     </el-tooltip>
@@ -36,31 +36,26 @@
     },
     data() {
       return {
-        isShowTooltip: true
+        isShowTooltip: false
       }
     },
     methods: {
-      onMouseOver(str) {
-        let parentWidth = this.$refs[str].parentNode.offsetWidth;
-        let contentWidth = this.$refs[str].offsetWidth;
-        // 判断是否开启tooltip功能
-        if (contentWidth>parentWidth) {
-          this.isShowTooltip = false;
-        } else {
-          this.isShowTooltip = true;
-        }
-      }
     }
   }
 </script>
 
-<style scoped>
+<style  lang="scss" scoped>
+  
+  .item{
+    background: #cccccc !important;
+    width: 100px !important;
+  }
 .over-flow {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 .wid190 {
-	width: 190px;
+	width: 100px;
 }
 </style>

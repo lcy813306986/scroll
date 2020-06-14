@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import TextTooltip from './toolTip.vue'
+import TextTooltip from './toolTip'
 export default {
   name: 'scroll',
    components: {
@@ -119,24 +119,24 @@ export default {
   },
   methods: {
     startMove () {
-      this.dataList.push(this.dataList[this.number]);
       this.timer = setTimeout(() => {
         // if (this.number === 14) {
         //   this.number = 0;
         // } else {
         //   this.number += 1;
         // }
+        
+        this.dataList.push(this.dataList[this.number]);
         this.number += 1;
         let top = -this.number*50;
         this.$refs['box'].style.transform = "translateY("+top+"px)"
         // this.dataList.shift();
         // this.list = this.dataList
         this.startMove();
-      }, 2000); // 滚动不需要停顿则将2000改成动画持续时间
+      }, 1000); // 滚动不需要停顿则将2000改成动画持续时间
     },
-    stop(e){
+    stop(){
       clearTimeout(this.timer)
-      console.log(e);
     },
     start(){
       let top = - this.number*50;
@@ -172,7 +172,7 @@ export default {
     border:1px solid #ccc;
   }
   #box{
-    transition: all 0.5s linear;
+    transition: all 0.5s ease-in-out;
   }
   #box ul{
     width:100%;
