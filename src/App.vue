@@ -1,21 +1,18 @@
 <template>
   <div id="app">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <scroll msg="Welcome to Your Vue.js App"/>
-    <scrollone msg="Welcome to Your Vue.js App"/>
+    <!--<scroll msg="Welcome to Your Vue.js App"/>-->
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-import scroll from './components/scroll.vue'
-import scrollone from './components/scrollone.vue'
+// import scroll from './components/scroll.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld,
-    scroll,
-    scrollone
+    HelloWorld
+    // scroll
   }
 }
 </script>
